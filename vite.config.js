@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico"],
       manifest: {
-        name: "Todo List App",
-        short_name: "Todo List",
-        description: "Todo List App For Everyone",
+        name: "Personal Blog",
+        short_name: "Personal Blog",
+        description: "Personal Blog For Everyone",
         theme_color: "#FFB200",
         icons: [
           {
