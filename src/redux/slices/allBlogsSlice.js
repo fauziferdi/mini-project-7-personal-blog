@@ -22,7 +22,6 @@ const allBlogsSlice = createSlice({
   initialState,
 
   extraReducers: (builder) => {
-    //all Blog
     builder.addCase(fetchAllBlogs.pending, (state) => {
       state.loading = true;
       state.error = null;

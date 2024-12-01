@@ -20,7 +20,6 @@ const detailBlogSlice = createSlice({
   initialState,
 
   extraReducers: (builder) => {
-    //recent Blog
     builder.addCase(fetchDetailBlog.pending, (state) => {
       state.loading = true;
       state.error = null;

@@ -21,7 +21,6 @@ const recentBlogsSlice = createSlice({
   initialState,
 
   extraReducers: (builder) => {
-    //recent Blog
     builder.addCase(fetchRecentBlogs.pending, (state) => {
       state.loading = true;
       state.error = null;

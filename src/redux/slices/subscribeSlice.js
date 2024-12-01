@@ -6,7 +6,7 @@ const API_URL = "https://lumoshive-academy-media-api.vercel.app/api";
 export const subscribeBlog = createAsyncThunk(
   "subscribe/subscribeBlog",
   async (email) => {
-    const response = await axios.post(`${API_URL}/subscribe`, email);
+    const response = await axios.post(`${API_URL}/subscribe`, { email });
     return response.data;
   }
 );
@@ -23,15 +23,15 @@ const subscribeSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(subscribeBlog.pending, (state) => {
-      state.loading = false;
+      state.loading = true;
       state.error = null;
     });
     builder.addCase(subscribeBlog.fulfilled, (state, action) => {
-      state.loading = true;
+      state.loading = false;
       state.subsribe = action.payload;
     });
     builder.addCase(subscribeBlog.rejected, (state, action) => {
-      state.loading = false;
+      state.loading = true;
       state.error = action.error.message;
     });
   },
