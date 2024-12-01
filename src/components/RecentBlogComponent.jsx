@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const RecentBlogComponent = () => {
   const [blogs, setBlogs] = useState([]);
@@ -40,7 +41,14 @@ const RecentBlogComponent = () => {
                 <p className="author-title">
                   {blogs[0].author} {blogs[0].time}
                 </p>
-                <h5 className="card-title">{blogs[0].title}</h5>
+                <div class="d-flex">
+                  <div class=" w-100">
+                    <h5 class="card-title">{blogs[0].title}</h5>
+                  </div>
+                  <div class=" flex-shrink-1">
+                    <FiArrowUpRight />
+                  </div>
+                </div>
 
                 <p className="card-text">{blogs[0].desc.slice(0, 100)}</p>
                 <button className="btn btn-sm btn-primary">
@@ -127,7 +135,14 @@ const RecentBlogComponent = () => {
                     <p className="author-title">
                       {blogs[3].author} {blogs[3].time}
                     </p>
-                    <h5 className="card-title">{blogs[3].title}</h5>
+                    <div class="d-flex">
+                      <div class=" w-100">
+                        <h5 class="card-title">{blogs[3].title}</h5>
+                      </div>
+                      <div class=" flex-shrink-1">
+                        <FiArrowUpRight />
+                      </div>
+                    </div>
                     <p className="card-text">{blogs[3].desc}</p>
                     <button className="btn btn-sm btn-primary">
                       {blogs[3].tag}

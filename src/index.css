@@ -7,3 +7,17 @@
   color: #6941c6;
   font-weight: bold;
 }
+
+.bg-primary-cstm {
+  background-color: #7f56d9;
+}
+
+.text-primary-cstm {
+  color: #7f56d9;
+}
+
+.btn-primary-cstm {
+  background-color: #7f56d9 !important;
+  border-color: #7f56d9 !important;
+  color: white !important;
+}
