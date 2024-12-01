@@ -41,9 +41,11 @@ const AllBlogComponent = () => {
     <>
       <div className="container mt-5">
         <h2>All blog posts</h2>
-        <button onClick={() => console.log(blogs)}></button>
+
         <div className="row row-cols-1 row-cols-md-3 g-4 mt-4">
-          <ItemComponent blogAll={blogs} amount="6" />
+          {blogs.slice(0, 6).map((blog) => (
+            <ItemComponent key={blog.key} blog={blog} />
+          ))}
         </div>
         <hr />
         <div className="d-flex justify-content-between mt-2">

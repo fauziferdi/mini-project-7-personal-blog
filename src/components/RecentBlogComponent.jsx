@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { FiArrowUpRight } from "react-icons/fi";
+import ItemComponent from "./ItemComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRecentBlogs } from "../redux/slices/recentBlogsSlice";
 
 const RecentBlogComponent = () => {
-  const [blogs, setBlogs] = useState([]);
+  const dispatch = useDispatch();
+  const { blogs, loading, error } = useSelector((state) => state.recentBlogs);
 
   useEffect(() => {
-    fetchBlogs();
-    console.log(blogs);
-  }, []);
+    const fetchBlogs = async () => {
+      try {
+        dispatch(fetchRecentBlogs(1));
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  const fetchBlogs = async () => {
-    console.log("sda");
-    try {
-      const response = await axios.get(
-        "https://lumoshive-academy-media-api.vercel.app/api/games?page=1"
-      );
-      setBlogs(response.data);
-    } catch (error) {
-      console.error("Error fetching blogs:", error);
-    }
-  };
+    fetchBlogs();
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   if (blogs.length === 0) {
     return <div>Loading...</div>;
@@ -41,82 +47,24 @@ const RecentBlogComponent = () => {
                 <p className="author-title">
                   {blogs[0].author} {blogs[0].time}
                 </p>
-                <div class="d-flex">
-                  <div class=" w-100">
-                    <h5 class="card-title">{blogs[0].title}</h5>
+                <div className="d-flex">
+                  <div className="w-100">
+                    <h5 className="card-title">{blogs[0].title}</h5>
                   </div>
-                  <div class=" flex-shrink-1">
+                  <div className="flex-shrink-1">
                     <FiArrowUpRight />
                   </div>
                 </div>
-
                 <p className="card-text">{blogs[0].desc.slice(0, 100)}</p>
-                <button className="btn btn-sm btn-primary">
-                  {blogs[0].tag}
-                </button>
+                <p className="game-label">{blogs[0].tag}</p>
               </div>
             </div>
           </div>
           <div className="col-md-6">
             <div className="row">
-              <div className="col-md-12">
-                <div className="card mb-3 border-0">
-                  <div className="row g-0">
-                    <div className="col-md-7 h-100">
-                      <img
-                        src={blogs[1].thumb}
-                        className="img-fluid rounded-start"
-                        alt={blogs[1].title}
-                        style={{ width: "100%", objectFit: "cover" }}
-                      />
-                    </div>
-                    <div className="col-md-5">
-                      <div className="card-body pt-0">
-                        <p className="author-title">
-                          {blogs[1].author} {blogs[1].time}
-                        </p>
-                        <h5 className="card-title">{blogs[1].title}</h5>
-
-                        <p className="card-text">
-                          {blogs[1].desc.slice(0, 100)}
-                        </p>
-                        <button className="btn btn-sm btn-primary">
-                          {blogs[1].tag}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-12 mt-2">
-                <div className="card mb-3 border-0">
-                  <div className="row g-0">
-                    <div className="col-md-7">
-                      <img
-                        src={blogs[2].thumb}
-                        className="img-fluid rounded-start"
-                        alt={blogs[2].title}
-                        style={{ width: "100%", objectFit: "cover" }}
-                      />
-                    </div>
-                    <div className="col-md-5">
-                      <div className="card-body pt-0">
-                        <p className="author-title">
-                          {blogs[2].author} {blogs[2].time}
-                        </p>
-                        <h5 className="card-title">{blogs[2].title}</h5>
-
-                        <p className="card-text">
-                          {blogs[2].desc.slice(0, 100)}
-                        </p>
-                        <button className="btn btn-sm btn-primary">
-                          {blogs[2].tag}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {blogs.slice(1, 3).map((blog) => (
+                <ItemComponent blog={blog} homeScreen={true} />
+              ))}
             </div>
           </div>
           <div className="col-md-12 mt-2">
@@ -144,9 +92,7 @@ const RecentBlogComponent = () => {
                       </div>
                     </div>
                     <p className="card-text">{blogs[3].desc}</p>
-                    <button className="btn btn-sm btn-primary">
-                      {blogs[3].tag}
-                    </button>
+                    <p className="game-label">{blogs[3].tag}</p>
                   </div>
                 </div>
               </div>

@@ -42,8 +42,10 @@ const DetailBlogComponent = () => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-md-4">
-            <button></button>
+          <div className="col-md-4 pe-5">
+            {blogs.map((blog) => (
+              <ItemComponent key={blog.key} blog={blog} detailActive={true} />
+            ))}
           </div>
           <div className="col-md-8">
             <div>
