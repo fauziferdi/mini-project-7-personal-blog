@@ -1,8 +1,19 @@
 .header-cstm {
   color: black;
-  font-size: 200px;
+  font-size: 250px; /* Ukuran default untuk layar besar */
 }
 
+@media only screen and (max-width: 428px) {
+  .header-cstm {
+    font-size: 50px !important;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .header-cstm {
+    font-size: 150px !important;
+  }
+}
 .author-title {
   color: #6941c6;
   font-weight: bold;

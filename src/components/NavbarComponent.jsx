@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link
 
 const NavbarComponent = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-light">
       <div className="container">
-        <a className="navbar-brand fw-bold fs-1" href="#">
+        <Link to="/" className="navbar-brand fw-bold fs-1">
+          {" "}
+          {/* Ganti <a> dengan <Link> */}
           LumosBlog
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -20,15 +23,15 @@ const NavbarComponent = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav ms-auto">
-            <a className="nav-link active" aria-current="page" href="#">
+            <Link to="/" className="nav-link active" aria-current="page">
               Blog
-            </a>
-            <a className="nav-link active" href="#">
+            </Link>
+            <Link to="/about" className="nav-link active">
               About
-            </a>
-            <a className="nav-link active" href="#">
+            </Link>
+            <Link to="/newsletter" className="nav-link active">
               Newaletter
-            </a>
+            </Link>
           </div>
         </div>
       </div>

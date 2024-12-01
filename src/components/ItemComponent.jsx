@@ -6,7 +6,10 @@ const ItemComponent = ({ blog, detailActive = false, homeScreen = false }) => {
   if (homeScreen) {
     return (
       <div className="col-md-12" key={blog.key}>
-        <div className="card mb-3 border-0">
+        <Link
+          to={`/blog/${blog.key}`}
+          className="card text-decoration-none text-dark border-0"
+        >
           <div className="row g-0">
             <div className="col-md-7">
               <img
@@ -27,7 +30,7 @@ const ItemComponent = ({ blog, detailActive = false, homeScreen = false }) => {
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     );
   } else {

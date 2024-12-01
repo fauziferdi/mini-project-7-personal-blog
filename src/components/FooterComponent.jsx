@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FooterComponent = () => {
   return (
@@ -6,34 +7,34 @@ const FooterComponent = () => {
       <div className="container ">
         <ul className="list-inline mb-0 ">
           <li className="list-inline-item">
-            <a href="#" className="text-decoration-none text-dark">
+            <Link to="#" className="text-decoration-none text-dark">
               &copy; {new Date().getFullYear()}
-            </a>
+            </Link>
           </li>
           <li className="list-inline-item">
-            <a href="#" className="text-decoration-none text-dark">
+            <Link to="#" className="text-decoration-none text-dark">
               Twitter
-            </a>
+            </Link>
           </li>
           <li className="list-inline-item">
-            <a href="#" className="text-decoration-none text-dark">
+            <Link to="#" className="text-decoration-none text-dark">
               LinkedIn
-            </a>
+            </Link>
           </li>
           <li className="list-inline-item">
-            <a href="#" className="text-decoration-none text-dark">
+            <Link to="#" className="text-decoration-none text-dark">
               Email
-            </a>
+            </Link>
           </li>
           <li className="list-inline-item">
-            <a href="#" className="text-decoration-none text-dark">
+            <Link to="#" className="text-decoration-none text-dark">
               RSS Feed
-            </a>
+            </Link>
           </li>
           <li className="list-inline-item">
-            <a href="#" className="text-decoration-none text-dark">
+            <Link to="#" className="text-decoration-none text-dark">
               Add to Feedly
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

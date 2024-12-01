@@ -3,6 +3,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import ItemComponent from "./ItemComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRecentBlogs } from "../redux/slices/recentBlogsSlice";
+import LoadingComponent from "./LoadingComponent";
 
 const RecentBlogComponent = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const RecentBlogComponent = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (error) {

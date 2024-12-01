@@ -6,6 +6,7 @@ import { fetchDetailBlog } from "../redux/slices/detailBlogSlice";
 import { fetchRecentBlogs } from "../redux/slices/recentBlogsSlice";
 import parse from "html-react-parser";
 import ItemComponent from "./ItemComponent";
+import LoadingComponent from "./LoadingComponent";
 
 const DetailBlogComponent = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const DetailBlogComponent = () => {
   }, [dispatch, key]);
 
   if (recentBlogsLoading && detailBlogLoading) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (recentBlogsError && detailBlogError) {
@@ -40,18 +41,16 @@ const DetailBlogComponent = () => {
 
   return (
     <>
-      <div className="container mt-5">
+      <div className="container mt-5 ">
         <div className="row">
-          <div className="col-md-4 pe-5">
+          <div className="col-md-4 pe-3">
             {blogs.map((blog) => (
               <ItemComponent key={blog.key} blog={blog} detailActive={true} />
             ))}
           </div>
           <div className="col-md-8">
             <div>
-              <p className="author-title">
-                {blog.author} {blog.time}
-              </p>
+              <p className="author-title mb-5">{blog.date}</p>
               <h2>{blog.title}</h2>
               {reactElement}
             </div>

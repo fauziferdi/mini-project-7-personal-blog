@@ -3,6 +3,8 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ItemComponent from "./ItemComponent";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllBlogs } from "../redux/slices/allBlogsSlice";
+import { Link } from "react-router-dom"; // Import Link
+import LoadingComponent from "./LoadingComponent";
 
 const AllBlogComponent = () => {
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ const AllBlogComponent = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (error) {
@@ -49,12 +51,21 @@ const AllBlogComponent = () => {
         </div>
         <hr />
         <div className="d-flex justify-content-between mt-2">
-          <a href="#" onClick={handlePreviousPage} disabled={page === 1}>
+          <Link
+            to="#"
+            onClick={handlePreviousPage}
+            disabled={page === 1}
+            className="text-decoration-none text-dark"
+          >
             <FaArrowLeft /> Previous
-          </a>
-          <a href="#" onClick={handleNextPage}>
+          </Link>
+          <Link
+            to="#"
+            onClick={handleNextPage}
+            className="text-decoration-none text-dark"
+          >
             Next <FaArrowRight />
-          </a>
+          </Link>
         </div>
       </div>
     </>
