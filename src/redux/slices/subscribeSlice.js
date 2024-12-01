@@ -3,7 +3,7 @@ import axios from "axios";
 
 const API_URL = "https://lumoshive-academy-media-api.vercel.app/api";
 
-const subscribeBlog = createAsyncThunk(
+export const subscribeBlog = createAsyncThunk(
   "subscribe/subscribeBlog",
   async (email) => {
     const response = await axios.post(`${API_URL}/subscribe`, email);

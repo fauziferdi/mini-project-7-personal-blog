@@ -3,10 +3,10 @@ import axios from "axios";
 
 const API_URL = "https://lumoshive-academy-media-api.vercel.app/api";
 
-const fetchAllBlogs = createAsyncThunk(
+export const fetchAllBlogs = createAsyncThunk(
   "allBlogs/fetchAllBlogs",
   async (page) => {
-    const response = await axios.get(`${API_URL}games/news?page=${page}`);
+    const response = await axios.get(`${API_URL}/games/news?page=${page}`);
     return response.data;
   }
 );

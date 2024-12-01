@@ -1,28 +1,33 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
-const ItemComponent = ({ blogAll, detailActive = false }) => {
-  return blogAll.slice(0, 6).map((blog) => (
-    <div class="col">
-      <div class="card">
-        <img src={blog.thumb} class="card-img-top" alt="..." />
-        <div class="card-body">
-          <p class="author-title">
+import { Link } from "react-router-dom";
+
+const ItemComponent = ({ blogAll, detailActive = false, amount }) => {
+  return blogAll.slice(0, amount).map((blog) => (
+    <div className="col" key={blog.key}>
+      <Link
+        to={`/blog/${blog.key}`}
+        className="card text-decoration-none text-dark"
+      >
+        <img src={blog.thumb} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <p className="author-title">
             {blog.author} {blog.time}
           </p>
-          <div class="d-flex">
-            <div class=" w-100">
-              <h5 class="card-title">{blog.title.slice(0, 50)}</h5>
+          <div className="d-flex">
+            <div className="w-100">
+              <h5 className="card-title">{blog.title.slice(0, 50)}</h5>
             </div>
-            <div class=" flex-shrink-1">
+            <div className="flex-shrink-1">
               <FiArrowUpRight />
             </div>
           </div>
-          <p class="card-text">{blog.desc.slice(0, 120)} </p>
+          <p className="card-text">{blog.desc.slice(0, 120)} </p>
           {detailActive ? null : (
             <button className="btn btn-sm btn-primary">{blog.tag}</button>
           )}
         </div>
-      </div>
+      </Link>
     </div>
   ));
 };

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const API_URL = "https://lumoshive-academy-media-api.vercel.app/api";
 
-const fetchRecentBlogs = createAsyncThunk(
+export const fetchRecentBlogs = createAsyncThunk(
   "recentBlogs/fetchRecentBlogs",
   async (page) => {
     const response = await axios.get(`${API_URL}/games?page=${page}`);
@@ -23,13 +23,14 @@ const recentBlogsSlice = createSlice({
   extraReducers: (builder) => {
     //recent Blog
     builder.addCase(fetchRecentBlogs.pending, (state) => {
-      state.loading = false;
+      state.loading = true;
       state.error = null;
     });
 
     builder.addCase(fetchRecentBlogs.fulfilled, (state, action) => {
       state.loading = false;
       state.blogs = action.payload;
+      console.log(state.blogs);
     });
 
     builder.addCase(fetchRecentBlogs.rejected, (state, action) => {

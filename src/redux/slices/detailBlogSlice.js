@@ -3,11 +3,11 @@ import axios from "axios";
 
 const API_URL = "https://lumoshive-academy-media-api.vercel.app/api";
 
-const fetchDetailBlog = createAsyncThunk(
+export const fetchDetailBlog = createAsyncThunk(
   "detailBlog/fetchDetailBlog",
   async (key) => {
     const response = await axios.get(`${API_URL}/detail/${key}`);
-    return response.data;
+    return response.data.results;
   }
 );
 const initialState = {
@@ -22,8 +22,9 @@ const detailBlogSlice = createSlice({
   extraReducers: (builder) => {
     //recent Blog
     builder.addCase(fetchDetailBlog.pending, (state) => {
-      state.loading = false;
+      state.loading = true;
       state.error = null;
+      state.blog = {};
     });
 
     builder.addCase(fetchDetailBlog.fulfilled, (state, action) => {
