@@ -27,7 +27,7 @@ const subscribeSlice = createSlice({
       state.error = null;
     });
     builder.addCase(subscribeBlog.fulfilled, (state, action) => {
-      state.loading = false;
+      state.loading = true;
       state.subsribe = action.payload;
     });
     builder.addCase(subscribeBlog.rejected, (state, action) => {
