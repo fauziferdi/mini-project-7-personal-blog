@@ -2,7 +2,7 @@ import React from "react";
 
 const NewsletterComponent = () => {
   return (
-    <div className="container my-5 ">
+    <div className="container my-5" data-cy="newsletter">
       <div className="d-flex justify-content-center align-items-center text-center">
         <div>
           <p className="text-primary-cstm fw-bold">Newslatters</p>

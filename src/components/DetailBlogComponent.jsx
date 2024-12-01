@@ -43,16 +43,18 @@ const DetailBlogComponent = () => {
     <>
       <div className="container mt-5 ">
         <div className="row">
-          <div className="col-md-4 pe-3">
+          <div data-cy="related-posts" className="col-md-4 pe-3">
             {blogs.map((blog) => (
               <ItemComponent key={blog.key} blog={blog} detailActive={true} />
             ))}
           </div>
           <div className="col-md-8">
             <div>
-              <p className="author-title mb-5">{blog.date}</p>
-              <h2>{blog.title}</h2>
-              {reactElement}
+              <p data-cy="blog-date" className="author-title mb-5">
+                {blog.date}
+              </p>
+              <h2 data-cy="blog-title">{blog.title}</h2>
+              <div data-cy="blog-content">{reactElement}</div>
             </div>
             <NewsletterComponent />
           </div>

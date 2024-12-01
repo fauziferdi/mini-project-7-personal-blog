@@ -7,8 +7,12 @@ const Home = () => {
   return (
     <>
       <HeaderComponent />
-      <RecentBlogComponent />
-      <AllBlogComponent />
+      <div data-cy="recent-blog-section">
+        <RecentBlogComponent />
+      </div>
+      <div data-cy="all-blog-section">
+        <AllBlogComponent />
+      </div>
     </>
   );
 };

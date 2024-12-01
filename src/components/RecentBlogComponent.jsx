@@ -33,7 +33,7 @@ const RecentBlogComponent = () => {
   if (blogs.length === 0) {
   } else {
     return (
-      <div className="container mt-5">
+      <div className="container mt-5" data-cy="recent-blog-posts">
         <h2>Recent blog posts</h2>
 
         <div className="row mt-4">
