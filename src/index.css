@@ -14,6 +14,7 @@
     font-size: 150px !important;
   }
 }
+
 .author-title {
   color: #6941c6;
   font-weight: bold;
@@ -40,4 +41,17 @@
   color: #6941c6;
   background-color: #f9f5ff;
   border-radius: 10px;
+}
+
+.image-not-found {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .image-not-found {
+    max-width: 80%;
+  }
 }

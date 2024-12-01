@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ItemComponent from "./ItemComponent";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllBlogs } from "../redux/slices/allBlogsSlice";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 import LoadingComponent from "./LoadingComponent";
 
 const AllBlogComponent = () => {
