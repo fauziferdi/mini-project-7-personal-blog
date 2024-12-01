@@ -1,6 +1,6 @@
 .header-cstm {
   color: black;
-  font-size: 250px; /* Ukuran default untuk layar besar */
+  font-size: 250px;
 }
 
 @media only screen and (max-width: 428px) {

@@ -1,13 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 
 const NavbarComponent = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-light">
       <div className="container">
         <Link to="/" className="navbar-brand fw-bold fs-1">
-          {" "}
-          {/* Ganti <a> dengan <Link> */}
           LumosBlog
         </Link>
         <button
@@ -30,7 +28,7 @@ const NavbarComponent = () => {
               About
             </Link>
             <Link to="/newsletter" className="nav-link active">
-              Newaletter
+              Newsletter
             </Link>
           </div>
         </div>
