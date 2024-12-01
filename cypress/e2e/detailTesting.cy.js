@@ -30,10 +30,6 @@ describe("Detail Personal Blog", () => {
     cy.get('[data-cy="related-posts"] .card').should("have.length.at.least", 1);
   });
 
-  it("should display newsletter component", () => {
-    cy.get('[data-cy="newsletter"]').should("be.visible");
-  });
-
   it("should navigate to another detail page when clicking a related post", () => {
     cy.get('[data-cy="related-posts"] .card').first().click();
     cy.url().should("include", "/blog/");

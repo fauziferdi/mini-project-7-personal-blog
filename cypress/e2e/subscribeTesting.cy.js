@@ -1,4 +1,4 @@
-describe("Todo List App", () => {
+describe("Subcribe Newsletter", () => {
   beforeEach(() => {
     cy.visit("http://localhost:5173/newsletter");
   });
