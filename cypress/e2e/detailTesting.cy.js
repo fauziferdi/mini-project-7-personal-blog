@@ -7,12 +7,12 @@ describe("Detail Personal Blog", () => {
     cy.intercept(
       "GET",
       "https://lumoshive-academy-media-api.vercel.app/api/games?page=1"
-    ).as("getGames");
+    ).as("getRecent");
     cy.visit(
       "http://localhost:5173/blog/2024/11/19/the-game-awards-2024-19112024"
     );
     cy.wait("@getDetailBlog");
-    cy.wait("@getGames");
+    cy.wait("@getRecent");
   });
 
   it("check localhost", () => {

@@ -43,7 +43,9 @@ const NewsletterComponent = () => {
     <div className="container my-5 ">
       <div className="d-flex justify-content-center align-items-center text-center">
         <div>
-          <p className="text-primary-cstm fw-bold">Newslatters</p>
+          <p className="text-primary-cstm fw-bold" cy-data="app-title">
+            Newslatters
+          </p>
           <h2 className="fw-bold">Stories and interviews</h2>
           <p>
             Subscribe to learn about new product features, the latest in
@@ -65,6 +67,7 @@ const NewsletterComponent = () => {
                 onChange={handleChange}
                 required
                 disabled={loading}
+                cy-data="email-input"
               />
               <p className="text-muted">
                 We care about your data in our privacy policy
@@ -75,6 +78,7 @@ const NewsletterComponent = () => {
                 type="submit"
                 className="btn btn-primary-cstm ms-2"
                 disabled={loading}
+                cy-data="subscribe-button"
               >
                 {loading ? (
                   <span

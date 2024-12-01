@@ -50,7 +50,7 @@ const DetailBlogComponent = () => {
           </div>
           <div className="col-md-8">
             <div>
-              <p data-cy="blog-date" className="author-title mb-5">
+              <p data-cy="blog-date" className="author-title">
                 {blog.date}
               </p>
               <h2 data-cy="blog-title">{blog.title}</h2>

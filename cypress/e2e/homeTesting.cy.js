@@ -3,14 +3,14 @@ describe("Home Personal Blog", () => {
     cy.intercept(
       "GET",
       "https://lumoshive-academy-media-api.vercel.app/api/games/news?page=1"
-    ).as("getNews");
+    ).as("getAll");
     cy.intercept(
       "GET",
       "https://lumoshive-academy-media-api.vercel.app/api/games?page=1"
-    ).as("getGames");
+    ).as("getRecent");
     cy.visit("http://localhost:5173/");
-    cy.wait("@getNews");
-    cy.wait("@getGames");
+    cy.wait("@getAll");
+    cy.wait("@getRecent");
   });
 
   it("check localhost", () => {
